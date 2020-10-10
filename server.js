@@ -54,10 +54,10 @@ app.use('/admin',routerAdmin);
 
 
 
-const port=1000;
+const port=process.env.PORT||1000;
 mongoose.connect("mongodb://localhost:27017/cleanUP",{useCreateIndex:true,useUnifiedTopology:true,useNewUrlParser:true})
 .then(function(){
-    app.listen(1000,function(){
+    app.listen(port,function(){
         console.log(`le server est lancer a cette adress http://localhost:${port}`);
     })
 })
