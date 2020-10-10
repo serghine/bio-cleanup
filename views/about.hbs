@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a propos</title>
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+   <link rel="stylesheet" href="/all.css">
+
+</head>
+<body>
+    <div class="container-fluid" style="background-color: rgb(84, 206, 200);height: 400px;">
+        <br>
+       <h1 style="text-align: center;"><em><strong>BIOclean</strong></em> </h1>
+        <div class="row">
+            <div class="col-md-12">
+     {{>navbar}}
+            </div>
+        </div>
+    </div>
+    <br>
+    <br> 
+     <div class="container">
+       <h1 style="border:1px solid green;border-radius: 200px;text-align: center;"><em><strong>Apropos de nous..</strong></em> </h1>
+
+    </div>
+    <div class="container-fluid">
+        <br>
+       <div class="row">
+                <div class="col-12 col-md-6" id="avis-img">
+                </div>
+                <div class="col-12 col-md-6 text-center d-flex flex-column justify-content-center" id="avis">
+                    <span><i class="fas fa-tint"></i></span>
+                    <h5>BIOclean</h5>
+                    <p  style="text-align: center;font-size:2rem;"> NETTOYAGE D'APPARTEMENTS</p>
+                   
+                        <h4><em>
+                            BIOclean – Entreprise de nettoyage général est spécialisée dans le nettoyage d’immeubles,d'appartement,parking,cave,debarats <br>
+                            Pour le nettoyage de votre appartement, exigez le savoir-faire de BIOclean ! Parce que la propreté de votre habitation est essentielle, nous entretenons tous types de surfaces avec des outils adaptés et efficaces.
+                            Face à la pandémie de coronavirus que nous traversons actuellement, BIOclean est capable d’effectuer la désinfection de tous vos locaux pour éliminer tout risque de contamination pour vos proches.
+                        </em> 
+                        </h4>
+                      <div>
+                          <br><hr>
+                <a href="/contact" class="btn btn-info" id="bott">Nous contacter</a> 
+            </div>
+           </div>
+           <br><br>
+           <div class="container-fluid p-1 alert alert-default text-center" role="alert">
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="alert-heading"> <i class="fa fa-map-marker" aria-hidden="true"></i> Zones d’intervention</h2>
+          <h3>Ville de Paris (75), Seine-et-Marne(77), Yvelines(78), L’Essonne(91)
+          <br>Hauts-de-Seine (92), Seine-Saint-Denis (93), Val-de-Marne (94), Val-d’Oise (95)</h3>
+        </div><!--Fin col -->
+      </div><!--Fin Row -->  
+  </div>
+           
+<div></div>
+<style>
+      #avis-img{
+    background-image: url(/alia.jpg);
+    {{!-- background-size: cover; --}}
+    background-repeat:no-repeat;
+    {{!-- background-attachment: fixed; --}}
+    min-height:calc(100vh - 50px);
+}
+#avis span{
+    font-size: 6rem;
+    color: #17abd8;
+}
+#avis h5{
+font-size: 2rem;
+    color: rgb(70, 139, 101);
+}
+#avis{
+    
+    min-height:calc(100vh - 50px);
+}
+</style>
+{{>footer}}
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>

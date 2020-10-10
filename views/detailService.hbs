@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>detail service</title>
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+   <link rel="stylesheet" href="/all.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+
+
+</head>
+
+    
+<body>
+    <div class="container-fluid" style="background-color: rgb(84, 206, 200);height: 400px;">
+        <br>
+       <h1 style="text-align: center;"><em><strong>BIOclean</strong></em> </h1>
+        <div class="row">
+            <div class="col-md-12">
+     {{>navbar}}
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    
+    <div class="container">
+       <h1 style="border:1px solid green;border-radius: 200px;text-align: center;"><em><strong>Detail du service {{service.name}}..</strong></em> </h1>
+
+        <br>
+       <div class="card mb-3 shadow" style="width: 80rem;height: 22rem;">
+      <div class="row no-gutters">
+      <div class="col-md-4">
+      <img src="/imageService/{{service._id}}/{{service.urlPhoto}}" class="card-img" alt="..."  style="height: 22rem;width: 27rem;">
+     </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">name: {{service.name}}</h5>
+        <p class="card-text"><strong>description: {{service.description}}</strong> </p>
+      </div>
+
+
+</div>
+
+
+    </div>
+  </div>
+</div>
+</div>
+<br><br>
+<div class="container">
+      <ul class="gallery" style="padding: 0%;">
+           
+            <li style="margin-left:0%;margin:20px;display:inline-block;list-style:none;">
+                <a data-fancybox="gallery" href="/imageService/{{service._id}}/gallery/{{galleryImage1}}">
+                <img src="/imageService/{{service._id}}/gallery/{{galleryImage1}}" alt="" style="width: 100px;height: 100px;">
+                </a>
+                 <a data-fancybox="gallery" href="/imageService/{{service._id}}/gallery/{{galleryImage2}}">
+                <img src="/imageService/{{service._id}}/gallery/{{galleryImage2}}" alt="" style="width: 100px;height: 100px;">
+                </a>
+                 <a data-fancybox="gallery" href="/imageService/{{service._id}}/gallery/{{galleryImage3}}">
+                <img src="/imageService/{{service._id}}/gallery/{{galleryImage3}}" alt="" style="width: 100px;height: 100px;">
+                </a>
+            </li>
+            {{!-- {{/galleryImages}} --}}
+       </ul>
+         </div>
+               <div style="height: 200px;"></div>
+ <div class="container-fluid p-1 alert alert-default text-center" role="alert">
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="alert-heading"> <i class="fa fa-map-marker" aria-hidden="true"></i> Zones d’intervention</h2>
+          <h6><em>
+              Ville de Paris (75), Seine-et-Marne(77), Yvelines(78), L’Essonne(91)
+          <br> Hauts-de-Seine (92), Seine-Saint-Denis (93), Val-de-Marne (94), Val-d’Oise (95)
+          </em></h6>
+        </div>
+      </div>  
+  </div>
+
+{{>footer}}
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+</body>
+</html>

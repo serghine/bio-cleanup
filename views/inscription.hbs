@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription</title>
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+   <link rel="stylesheet" href="/all.css">
+
+</head>
+    
+<body>
+    <div class="container-fluid" style="background-color: rgb(84, 206, 200);height: 400px;">
+        <br>
+       <h1 style="text-align: center;"><em><strong>BIOclean</strong></em> </h1>
+        <div class="row">
+            <div class="col-md-12">
+     {{>navbar}}
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+     <br>
+     {{#if message}}
+      <div style="text-align: center;" class="alert alert-{{message.type}}">
+         <button type="button" class="close" data-dismiss="alert">&times;</button>
+         <strong>{{message.intro}}</strong> :{{message.message}}
+      </div>
+   {{/if}}
+    <br>
+    <div class="container">
+       <h1 style="border:1px solid green;border-radius: 200px;text-align: center;"><em><strong>Inscription..</strong></em> </h1>
+<br><br>
+        <div class="row">
+            <div class="col-md-12">
+                 <form method="POST" action="/admin/inscription">
+               <div class="form-group">
+               <label for="name">Name</label>
+              <input type="text" class="form-control" id="name" name="name">
+              </div>
+            <div class="form-group">
+           <label for="email">Email</label>
+            <input type="email" class="form-control" name="email">
+           </div>
+               <div class="form-group">
+           <label for="password">Password</label>
+            <input type="password" class="form-control" name="password">
+           </div>
+            
+           <button type="submit" class="btn btn-warning btn-lg btn-block">Inscription</button>
+          </form>
+          <hr>
+          <a class="btn btn-success btn-lg btn-block" href="/admin/connexion">Connexion</a>
+            </div>
+        </div>
+    </div>
+
+   
+  <div style="height: 200px;"></div>
+
+
+
+
+{{>footer}}
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>creer un service</title>
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+   <link rel="stylesheet" href="/all.css">
+</head>
+<body>
+    <div class="container-fluid" style="background-color: rgb(84, 206, 200);height: 400px;">
+        <br>
+       <h1 style="text-align: center;"><em><strong>BIOclean</strong></em> </h1>
+        <div class="row">
+            <div class="col-md-12">
+     {{>navbar}}
+            </div>
+        </div>
+    </div>
+    
+     <br>
+     {{#if message}}
+      <div style="text-align: center;" class="alert alert-{{message.type}}">
+         <button type="button" class="close" data-dismiss="alert">&times;</button>
+         <strong>{{message.intro}}</strong> :{{message.message}}
+      </div>
+   {{/if}}
+
+    <br>
+    <div class="container">
+       <h1 style="border:1px solid green;border-radius: 200px;text-align: center;"><em><strong>Enregistrer un service..</strong></em> </h1>
+<br><br>
+        <div class="row">
+            <div class="col-md-12">
+                 <form action="/admin/service" method="POST" enctype="multipart/form-data">
+               <div class="form-group">
+               <label for="name">Name</label>
+              <input type="text" class="form-control" id="name" name="name">
+              </div>
+            <div class="form-group">
+           <label for="description">Description</label>
+            <input type="text" class="form-control" name="description">
+           </div>
+            
+                 <div class="form-group">
+                <label for="categorie">Categorie</label>
+                <select name="categorie" id="categorie">
+                    {{#each categorie}}
+                    <option value="{{this.name}}">{{this.name}}</option>
+                    {{/each}}
+                </select>
+              </div>
+                 <div class="form-group">
+          <label for="urlPhoto">urlPhoto</label>
+          <input type="file" class="form-control" id="img" name="image">
+          <img src="#" id="imagePreview" alt="">
+          </div>
+           <button type="submit" class="btn btn-success btn-lg btn-block">Enregistrer le service</button>
+          </form>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+<h1><em>Tout les services</em> </h1>
+<br><br>
+            <div class="row justify-content-center">
+                {{#each services}}
+                <div class=" col-md-4"  >
+                <div class="card shadow" style="width: 22rem;">
+                    <div class="inner">
+                    <img class="card-img-top" src="/imageService/{{this._id}}/{{this.urlPhoto}}"  alt="..."  >
+                    </div>
+                <div class="card-body ">
+                <h5 class="card-title"><strong style="color:rgb(187, 20, 20)">Name: </strong> {{this.name}}</h5>
+                <p class="card-text"><strong style="color:green">Categorie: </strong>{{this.categorie}}</p>
+                   <p class="card-text"><strong style="color:green">Description: </strong>{{this.description}}</p>
+                   <br>
+                     <div style="display: flex;">
+                    <a href="/admin/deletService/{{this._id}}" class="btn btn-danger">supprimer</a>
+                    <a href="/admin/service/{{this._id}}" class="btn btn-warning" style="margin-left: 20px;">Modifier</a>
+                </div>
+                 </div>
+               </div>
+               <br>
+                </div>
+              
+                <br>
+                {{/each}}
+                </div>
+                </div>
+               <div style="height: 500px;"></div>
+
+
+{{>footer}}
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script>
+
+function readUrl(input){
+    if(input.files && input.files[0]){
+        var reader=new FileReader();
+        reader.onload=function(e){
+            $ ("#imagePreview").attr("src", e.target.result).width(100).height(100);
+        }
+        reader.readAsDataURL(input.files[0])
+    }
+}
+$ ('#img').change(function(){
+    readUrl(this);
+})
+
+</script>
+
+</body>
+</html>

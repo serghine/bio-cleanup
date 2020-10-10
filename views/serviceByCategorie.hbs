@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>categorie par service</title>
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+   <link rel="stylesheet" href="/all.css">
+
+</head>
+
+    
+<body>
+    <div class="container-fluid" style="background-color: rgb(84, 206, 200);height: 400px;">
+        <br>
+       <h1 style="text-align: center;"><em><strong>BIOclean</strong></em> </h1>
+        <div class="row">
+            <div class="col-md-12">
+     {{>navbar}}
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    
+    <div class="container">
+       <h1 style="border:1px solid green;border-radius: 200px;text-align: center;"><em><strong>Tout les services de la categorie <h1 style="color: rgb(65, 241, 88);">{{name}}</h1></strong></em> </h1>
+       
+
+       
+<br><br>
+            <div class="row justify-content-center">
+                {{#each docs}}
+                <div class=" col-md-4"  >
+                <div class="card shadow" style="width: 22rem;">
+                    <div class="inner">
+                    <img class="card-img-top" src="/imageService/{{this._id}}/{{this.urlPhoto}}"  alt="..." style="size: cover;height: 300px;" >
+                    </div>
+                <div class="card-body " style="background-color:rgb(84, 206, 200) ;"
+                <h5 class="card-title"><strong style="color:rgb(187, 20, 20)">Name: </strong> {{this.name}}</h5>
+                <p class="card-text"><strong style="color:green">Categorie: </strong>{{this.categorie}}</p>
+                   <br>
+                     <div style="display: flex;">
+                    <a style="border-radius: 40px;" href="/detailService/{{this._id}}" class="btn btn-warning">Voir le detail<i class="fas fa-arrow-right"></i></a>
+                </div>
+                 </div>
+               </div>
+               <br>
+                </div>
+              
+                <br>
+                {{/each}}
+                </div>
+                </div>
+               <div style="height: 200px;"></div>
+        <div class="container-fluid p-1 alert alert-default text-center" role="alert">
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="alert-heading"> <i class="fa fa-map-marker" aria-hidden="true"></i> Zones d’intervention</h2>
+          <h3>Ville de Paris (75), Seine-et-Marne(77), Yvelines(78), L’Essonne(91)
+          <br>Hauts-de-Seine (92), Seine-Saint-Denis (93), Val-de-Marne (94), Val-d’Oise (95)</h3>
+        </div>
+      </div>  
+  </div>
+  <style>
+    
+      #avis-img{
+    background-image: url(/alia.jpg);
+    {{!-- background-size: cover; --}}
+    background-repeat:no-repeat;
+    {{!-- background-attachment: fixed; --}}
+    min-height:calc(100vh - 50px);
+}
+#avis span{
+    font-size: 6rem;
+    color: #17abd8;
+}
+#avis h5{
+font-size: 2rem;
+    color: rgb(70, 139, 101);
+}
+#avis{
+    
+    min-height:calc(100vh - 50px);
+}
+</style>
+  
+
+{{>footer}}
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>

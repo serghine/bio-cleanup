@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>modifier un service</title>
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+   <link rel="stylesheet" href="/all.css">
+
+</head>
+
+    
+<body>
+    <div class="container-fluid" style="background-color: rgb(84, 206, 200);height: 400px;">
+        <br>
+       <h1 style="text-align: center;"><em><strong>BIOclean</strong></em> </h1>
+        <div class="row">
+            <div class="col-md-12">
+     {{>navbar}}
+            </div>
+        </div>
+    </div>
+    <br>
+        {{#if message}}
+      <div style="text-align: center;" class="alert alert-{{message.type}}">
+         <button type="button" class="close" data-dismiss="alert">&times;</button>
+         <strong>{{message.intro}}</strong> :{{message.message}}
+      </div>
+   {{/if}}
+    <br>
+    <div class="container">
+       <h1 style="border:1px solid green;border-radius: 200px;text-align: center;"><em><strong>Modifier le service {{service.name}}..</strong></em> </h1>
+<br><br>
+        <div class="row">
+            <div class="col-md-12">
+                 <form action="/admin/serviceModif" method="POST" enctype="multipart/form-data">
+                 <input type="hidden" id="idProdModif" name="idProdModif" value="{{service._id}}">
+               <div class="form-group">
+               <label for="name">Name</label>
+              <input type="text" class="form-control" id="name" name="name" value="{{service.name}}">
+              </div>
+            <div class="form-group">
+           <label for="description">Description</label>
+            <input type="text" class="form-control" name="description" value="{{service.description}}">
+           </div>
+            
+                 <div class="form-group">
+                <label for="categorie">Categorie</label>
+                <select name="categorie" id="categorie">
+                    {{#each categories}}
+                    <option value="{{this.name}}">{{this.name}}</option>
+                    {{/each}}
+                </select>
+              </div>
+           <div class="form-group">
+          <label for="urlPhoto">image actuelle</label>
+          <img src="/imageService/{{service._id}}/{{service.urlPhoto}}" style="width: 100px;height: 100px;">
+          </div>
+          <div class="form-group">
+          <label for="urlPhoto">urlPhoto</label>
+          <input type="file" class="form-control" id="img" name="image">
+          <img src="#" id="imagePreview" alt="">
+          </div>
+          <input type="hidden" name="pimage" value="{{service.urlPhoto}}">
+           <button type="submit" class="btn btn-warning btn-lg btn-block">Modifier le service</button>
+          </form>
+            </div>
+        </div>
+    </div>
+     <br><br>
+    
+     <ul class="gallery" style="padding: 0%;">
+          
+      {{!-- {{#galerryImage}} --}}
+      
+         <li style="margin-left:0%;margin:20px;display:inline-block;list-style:none;">
+             <img src="/imageService/{{service.id}}/gallery/{{galerryImage1}}" alt="" style="width: 100px;height: 100px;">&nbsp;
+             <a href="/admin/delet-image/{{galerryImage1}}?id={{service.id}}" class="confirmDeletion">delete</a>
+         </li>
+              <li style="margin-left:0%;margin:20px;display:inline-block;list-style:none;">
+             <img src="/imageService/{{service.id}}/gallery/{{galerryImage2}}" alt="" style="width: 100px;height: 100px;">&nbsp;
+             <a href="/admin/delet-image/{{galerryImage2}}?id={{service.id}}" class="confirmDeletion">delete</a>
+         </li>
+              <li style="margin-left:0%;margin:20px;display:inline-block;list-style:none;">
+             <img src="/imageService/{{service.id}}/gallery/{{galerryImage3}}" alt="" style="width: 100px;height: 100px;">&nbsp;
+             <a href="/admin/delet-image/{{galerryImage3}}?id={{service.id}}" class="confirmDeletion">delete</a>
+         </li>
+        
+        {{!-- {{/galerryImage}} --}}
+        </ul>
+     
+<br><br>
+ <h1><em>Ajouter minimum 3 photos au service..</em></h1>
+<form action="/admin/service_gallery/{{service._id}}" method="POST" enctype="multipart/form-data" class="dropzone" id="dropezonForm">
+<div class="fallback" >
+    <input type="file" name="file" multiple>
+    <input type="submit" value="Upload">
+</div>
+</form>
+               <div style="height: 500px;"></div>
+
+
+{{>footer}}
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.1.1/basic.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.1.1/dropzone.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.1.1/dropzone.js"></script>
+<script>
+
+function readUrl(input){
+    if(input.files && input.files[0]){
+        var reader=new FileReader();
+        reader.onload=function(e){
+            $ ("#imagePreview").attr("src", e.target.result).width(100).height(100);
+        }
+        reader.readAsDataURL(input.files[0])
+    }
+}
+$ ('#img').change(function(){
+    readUrl(this);
+})
+
+//dropzon
+        Dropzone.options.dropzonform={
+          acceptedfiles:"image/*",
+          init:function(){
+              this.on("queuecomplete",function(file){
+                  setTimeout(function(){
+                      location.reload()
+                  },1000)
+              })
+          }
+        }
+
+
+
+</script>
+
+</body>
+</html>
